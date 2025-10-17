@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>חידון ספטמבר - לארי ומינדי</title>
+  <style>
+    body {
+      font-family: "Segoe UI", "Calibri", "Arial", sans-serif;
+      background: linear-gradient(to right, #9C2831, #9C2831);
+      padding: 20px;
+      color: #2c2c2c;
+      direction: rtl;
+      text-align: right;
+    }
+   .language-switch {
+  display: inline-block;
+  padding: 8px 16px;
+  background-color: black;
+  color: white;
+  border-radius: 20px;
+  text-decoration: none;
+  font-weight: bold;
+  margin: 10px 0 40px 10px;
+  /* float: left; ← remove this */
+    }
+    .clearfix {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+    .language-switch:hover { background-color: #444; }
+     .title-block {
+      text-align: center;
+       margin-bottom: 20px;
+    }
+      .title-block h2 {
+       margin: 10px 0;
+    }
+
+    .quiz-container {
+      max-width: 700px;
+      margin: 0 auto;
+      background-color: #ffffff;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    }
+    h2 {
+      text-align: center;
+      font-size: 2em;
+      color: #d35400;
+    }
+    .question {
+      font-weight: bold;
+      margin-top: 25px;
+      font-size: 1.1em;
+      animation: floatUp 0.6s ease forwards;
+    }
+    .options button {
+      display: block;
+      color: white;
+      margin: 8px 0;
+      padding: 10px;
+      width: 100%;
+      border: none;
+      border-radius: 6px;
+      background-color: #857C31;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      font-size: 1.1em;
+      text-align: right;
+    }
+    .options button:hover { background-color: #C5B001; }
+
+    .explanation {
+      color: #006400;
+      margin-top: 10px;
+      font-style: italic;
+      opacity: 0;
+    }
+    .explanation.show {
+      animation: zoomInLeft 0.6s ease forwards;
+      animation-delay: 0.4s;
+    }
+
+    .banner {
+      width: 100%;
+      max-height: 200px;
+      object-fit: cover;
+      margin-bottom: 20px;
+      border-radius: 8px;
+    }
+    #score {
+      position: sticky;
+      top: 0;
+      background-color: #FFFF00;
+      padding: 10px;
+      text-align: center;
+      font-weight: bold;
+      font-size: 1.3em;
+      border-bottom: 2px solid #ccc;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      z-index: 1000;
+    }
+ .footer {
+  margin: 40px auto 0;
+  text-align: center;
+  font-size: 0.95em;
+  max-width: 768px;
+  color: #444;
+  direction: rtl;  /* Keep Hebrew text RTL but center it */
+}
+.footer a {
+  color: #9C2831;
+  text-decoration: none;
+}
+.footer a:hover {
+  text-decoration: underline;
+}
+    .final-message {
+      text-align: center;
+      font-size: 1.5em;
+      font-weight: bold;
+      color: #9C2831;
+      background-color: #FFF8DC;
+      border: 2px solid #9C2831;
+      border-radius: 12px;
+      padding: 20px;
+      margin-top: 30px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+      animation: floatUp 0.6s ease forwards;
+    }
+    .back-button {
+      display: block;
+      background-color: #a02b2b;
+      color: white;
+      text-decoration: none;
+      padding: 16px 32px;
+      font-size: 18px;
+      border-radius: 40px;
+      cursor: pointer;
+      transition: box-shadow 0.3s ease, transform 0.2s ease;
+      line-height: 1.5;
+      text-align: center;
+      margin: 40px auto 30px;
+      max-width: 400px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      white-space: normal;
+    }
+    .back-button:hover {
+      box-shadow: 0 0 12px 4px rgba(193, 60, 60, 0.6);
+      transform: scale(1.05);
+      background-color: #b5303c;
+    }
+    @keyframes floatUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes zoomInLeft {
+      from { opacity: 0; transform: translateX(50px) scale(0.95); }
+      to   { opacity: 1; transform: translateX(0) scale(1); }
+    }
+  </style>
+</head>
+<body>
+  <div class="quiz-container">
+    <img src="September Quiz Banner H.jpg" alt="חידון ספטמבר" class="banner">
+
+    <a href="https://larrymindy.github.io/09-2025Q/" class="language-switch" target="_blank" rel="noopener noreferrer">English</a>
+
+  <div class="title-block">
+  <h2>חידון ספטמבר של לארי ומינדי</h2>
+  <h2>מסעות מוסיקליים בשנות ה־60 וה־70</h2>
+</div>
+    <p id="score">0 תשובות נכונות (מתוך 15)</p>
+    <div id="quiz"></div>
+
+    <img src="divider H-C.jpg" alt="קו מפריד" class="banner">
+
+    <div class="footer">
+      <p><strong style="color: #9C2831; font-size: 1.1em;">צרו קשר</strong><br>
+        054-6446396 / 050-5921628<br>
+        <a href="mailto:larry@larryandmindy.co.il?subject=שאלה מהאתר" style="color: #9C2831;">larry@larryandmindy.co.il</a><br>
+        או<br>
+        <a href="mailto:mindy@larryandmindy.co.il?subject=שאלה מהאתר" style="color: #9C2831;">mindy@larryandmindy.co.il</a>
+      </p>
+      <p>
+        <a href="http://www.larrymindy.co.il/" target="_blank" style="color: #9C2831; font-weight: bold;">בקרו באתר הראשי שלנו</a>
+      </p>
+    </div>
+  </div>
+
+<script>
+const quiz = [
+  {
+    question: "השיר 'הסלע האדום' מספר על צעירים שעשו מה?",
+    options: ["חצו את מדבר סיני בדרך לאילת", "מסע לירדן לראות את פטרה בסתר", "טיפסו על מצדה בליל כיפור", "תכננו פלישה לעקבה, ירדן"],
+    answer: 1,
+    explanation: "בשנות ה־50 חלמו צעירים ישראלים לגלות את העיר האבודה פטרה, ויצאו בסתר אל הסלע האדום – מסע של הרפתקה וסכנה."
+  },
+  {
+    question: "איזו להקה ביצעה לראשונה את השיר 'הטיול הגדול'?",
+    options: ["שלישיית גשר הירקון", "להקת הנחל", "הדודאים", "התרנגולים"],
+    answer: 1,
+    explanation: "להקת הנח\"ל העניקה חיים לשיר 'הטיול הגדול', שאפיין את רוח התקופה של צעירים וטיולים ברחבי הארץ."
+  },
+  {
+    question: "השיר 'הדרך אל הכפר' נכתב על-ידי מי?",
+    options: ["יוסי גמזו", "נתן יונתן", "אהוד מנור", "יורם טהרלב"],
+    answer: 3,
+    explanation: "יורם טהרלב כתב מלים נוגעות ללב על השיבה הפשוטה אל הכפר – געגוע לבית, לנוף ולשורשים."
+  },
+  {
+    question: "איזו תחושה מרכזית מתוארת בשיר 'טיול לילי'?",
+    options: ["פחד מהחושך", "רוגע של הלילה", "געגועים לבית", "שמחת נעורים"],
+    answer: 1,
+    explanation: "‘טיול לילי’ מצייר את השקט והשלווה של הלילה בכפר – הליכה לאור ירח שהפכה לסמל רומנטי ונוסטלגי."
+  },
+  {
+    question: "איזה משפט מופיע בשיר 'טוב ללכת בדרכים'?",
+    options: ["וצליל עולה יורד קצוב, גמלים פוסעים בנוף עצוב.", "כל דרכינו בטח יובילו, לעולם אל זה הכפר", "בא לו הלילה, ושקט עכשיו...", "אל תביטו לאחור, הניחו להולכים."],
+    answer: 1,
+    explanation: "השורה ‘כל דרכינו בטח יובילו, לעולם אל זה הכפר’ מבטאת אופטימיות ותחושת שייכות לארץ ולדרך."
+  },
+  {
+    question: "השיר 'דרך הכורכר' עוסק בעיקר ב־?",
+    options: ["מסע רגלי בשביל עפר", "טיול לירושלים", "מסע אלונקות", "זיכרון מן הצבא"],
+    answer: 0,
+    explanation: "‘דרך הכורכר’ מתאר מסע רגלי פשוט בשביל עפר – סמל לטיולי נעורים ולאותנטיות הארץ־ישראלית."
+  },
+  {
+    question: "מהו הנושא המרכזי בשיר 'שירת הנודד'?",
+    options: ["אדם החוזר הביתה", "בדידות של מטייל בדרכים", "חיי חייל בשירות", "געגועים לאהובה"],
+    answer: 1,
+    explanation: "‘שירת הנודד’ מספר על בדידות ונדודים – תחושת חופש מעורבת בעצב, שיר שמדבר אל לב המטיילים."
+  },
+  {
+    question: "באיזה אלבום הופיע לראשונה השיר 'סע לאט' של אריק איינשטיין?",
+    options: ["שבלול", "יושב על הגדר", "ארץ ישראל הישנה והטובה (חלק ג')", "סע לאט"],
+    answer: 3,
+    explanation: "האלבום 'סע לאט' (1974) הפך לאבן דרך – שירים של איינשטיין עם נגיעה אישית ואינטימית על חיי היומיום."
+  },
+  {
+    question: "מי כתב את המילים לשיר 'למדבר שאנו'?",
+    options: ["אלכסנדר פן", "אהוד מנור", "נעמי שמר", "חיים חפר"],
+    answer: 0,
+    explanation: "אלכסנדר פן, מהמשוררים הגדולים, כתב מלים מלאות תשוקה ונשמה לשיר שהתחבר לנוף המדבר הישראלי."
+  },
+  {
+    question: "מי הלחין את השיר 'דרך הכורכר' ששר אריק סיני?",
+    options: ["אריק סיני", "יעקב גלעד", "קורין אלאל", "דני רובס"],
+    answer: 2,
+    explanation: "קורין אלאל הלחינה את 'דרך הכורכר', בלחן מלודי וחם – שילוב מיוחד של פשטות ורגש."
+  },
+  {
+    question: "איזו חוויה מתוארת בשיר 'דרך ישנה'?",
+    options: ["חזרה למקום ילדות", "אהבה נכזבת", "שירה בצוותא", "יציאה למילואים בזמן מלחמה"],
+    answer: 0,
+    explanation: "השיר מתאר חזרה למחוזות ילדות, דרך ישנה שמעוררת זיכרונות מתוקים של פעם."
+  },
+  {
+    question: "מי כתב את המילים לשיר 'סע לאט'?",
+    options: ["אריק איינשטיין", "שלום חנוך", "יהונתן גפן", "יענקל'ה רוטבליט"],
+    answer: 0,
+    explanation: "אריק איינשטיין עצמו כתב את המילים – אישיות, כנות ופשוטות שהפכו לאחד השירים האהובים ביותר."
+  },
+  {
+    question: "איזו שורה מופיעה בשיר 'עוד חוזר הניגון'?",
+    options: ["ושוב נצא אל הדרך, יד ביד לדרך", "והרוח תקום ובטיסת נדנדות, יעברו הברקים מעליך", "כי לפני שמנקים את האתמול מן הרחובות", "בית זה אומר כבר הכל..."],
+    answer: 1,
+    explanation: "השורה 'והרוח תקום ובטיסת נדנדות...' מתוך ‘עוד חוזר הניגון’ של נתן אלתרמן היא דימוי פיוטי לזמן ולחיים."
+  },
+  {
+    question: "על מה מספר השיר 'הבלדה על יואל משה סלומון'?",
+    options: ["קרב תל חי", "ייסוד פתח תקווה", "גירוש יפו", "מלחמת השחרור"],
+    answer: 1,
+    explanation: "הבלדה של אריק איינשטיין מספרת על ייסוד פתח־תקווה – מיתוס ציוני על חלוצים וחזון."
+  },
+  {
+    question: "השיר 'טיול לילי' מזכיר?",
+    options: ["הליכה בשדות לאור ירח", "ריקוד על הדשא בחושך", "סירה קטנה בכנרת", "מדורה על חוף הים"],
+    answer: 0,
+    explanation: "השיר מתאר הליכה בשדות לאור ירח – תמונה קסומה של רוגע כפרי ואהבת הארץ."
+  }
+];
+
+const quizDiv = document.getElementById('quiz');
+let score = 0;
+const scoreDisplay = document.getElementById('score');
+let currentIndex = 0;
+
+function showQuestion(index) {
+  const q = quiz[index];
+  const questionDiv = document.createElement('div');
+  questionDiv.className = 'question';
+  questionDiv.textContent = `${index + 1}. ${q.question}`;
+
+  const optionsDiv = document.createElement('div');
+  optionsDiv.className = 'options';
+
+  const explanationDiv = document.createElement('div');
+  explanationDiv.className = 'explanation';
+  explanationDiv.textContent = q.explanation;
+
+  q.options.forEach((opt, i) => {
+    const btn = document.createElement('button');
+    btn.textContent = opt;
+
+    btn.onclick = () => {
+      const alreadyAnswered = Array.from(optionsDiv.children).some(b => b.disabled);
+      if (alreadyAnswered) return;
+
+      if (i === q.answer) {
+        btn.style.backgroundColor = '#072EF3';
+        score++;
+        scoreDisplay.textContent = `${score} תשובות נכונות (מתוך ${quiz.length})`;
+      } else {
+        btn.style.backgroundColor = '#CD0101';
+        const correctBtn = optionsDiv.children[q.answer];
+        correctBtn.style.backgroundColor = '#039303';
+      }
+      Array.from(optionsDiv.children).forEach(b => b.disabled = true);
+      explanationDiv.classList.add('show');
+
+      const timeToNext = 3000;
+      if (index + 1 < quiz.length) {
+        setTimeout(() => showQuestion(index + 1), timeToNext);
+      } else {
+        setTimeout(() => {
+          const doneMsg = document.createElement('div');
+          doneMsg.className = 'final-message';
+          doneMsg.textContent = 'כל השאלות נענו — כל הכבוד!';
+          quizDiv.appendChild(doneMsg);
+
+          const backLink = document.createElement('a');
+          backLink.className = 'back-button';
+          backLink.href = 'https://quiz.larrymindy.com/09-2025h.php';
+          backLink.target = '_blank';
+          backLink.rel = 'noopener noreferrer';
+          backLink.innerHTML = 'חזרה לדף הפתיחה<br>ולחידונים קודמים...';
+          quizDiv.appendChild(backLink);
+        }, timeToNext);
+      }
+    };
+
+    optionsDiv.appendChild(btn);
+  });
+
+  questionDiv.appendChild(optionsDiv);
+  questionDiv.appendChild(explanationDiv);
+  quizDiv.appendChild(questionDiv);
+}
+
+showQuestion(currentIndex);
+</script>
+</body>
+</html>
